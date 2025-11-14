@@ -141,7 +141,7 @@ curl -X POST "http://localhost:8000/store/register" \
 **Endpoint**: `POST /ask-question`
 
 ```bash
-curl -X POST "http://localhost:8000/ask-question" \
+curl -X POST "http://localhost:8000/store/question" \
   -H "Content-Type: application/json" \
   -d '{
     "store_id": "store_001",
@@ -170,7 +170,7 @@ register_data = {
     "description": "이탈리안 레스토랑으로 정통 나폴리 피자를 제공합니다. 이탈리아에서 직수입한 화덕에서 구워내며, 매주 신선한 모짜렐라 치즈를 직접 만듭니다."
 }
 
-response = requests.post("http://localhost:8000/register-store", json=register_data)
+response = requests.post("http://localhost:8000/store/register", json=register_data)
 print(response.json())
 
 # 질문하기
@@ -179,7 +179,7 @@ question_data = {
     "question": "어떤 종류의 피자를 파나요?"
 }
 
-response = requests.post("http://localhost:8000/ask-question", json=question_data)
+response = requests.post("http://localhost:8000/store/question", json=question_data)
 print(response.json())
 ```
 
