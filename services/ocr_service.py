@@ -167,9 +167,9 @@ class OCRService:
             
             return {
                 "company_name": company_name,
-                "business_number": business_number,
+                "business_number": business_number.replace('-', ''),
                 "representative_name": representative_name,
-                "opening_date": opening_date,
+                "opening_date": opening_date.replace('년', '').replace('월', '').replace('일', ''),
                 "parsed": parsed_success
             }
         

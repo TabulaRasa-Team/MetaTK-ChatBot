@@ -58,12 +58,3 @@ async def extract_text_from_image(file: UploadFile = File(...)):
       status_code=500,
       detail=f"OCR 처리 중 오류가 발생했습니다: {str(e)}"
     )
-
-@router.post("/check")
-async def check_company():
-  """
-  소상공인 확인 API
-  
-  1. 중소기업 확인서를 사진으로 받음
-  2. OCR을 통해 텍스트 추출
-  """
