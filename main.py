@@ -4,7 +4,7 @@
 """
 from fastapi import FastAPI
 import uvicorn
-from api import store_router
+from api import store_router, company_router
 from config import get_settings
 
 # 설정 로드
@@ -19,6 +19,8 @@ app = FastAPI(
 
 # 라우터 등록
 app.include_router(store_router)
+app.include_router(company_router)
+
 
 
 @app.get("/")
@@ -31,6 +33,8 @@ async def root():
         "endpoints": {
             "POST /store/register": "가게 정보 등록",
             "POST /store/question": "가게에 대한 질문",
+            "POST /company/ocr": "사진에서 OCR로 텍스트 추출",
+            "POST /company/pdf-ocr": "PDF에서 OCR로 텍스트 추출",
             "GET /health": "서버 상태 확인",
             "GET /docs": "API 문서 (Swagger UI)"
         }
